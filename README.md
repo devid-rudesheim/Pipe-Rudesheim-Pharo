@@ -1,6 +1,6 @@
 # Rudesheim Pipe for Pharo
 
-[![GitHub release](https://img.shields.io/github/release/devid-rudesheim/Pipe-Rudesheim-Pharo.svg)](https://github.com/devid-rudesheim/Pipe-Rudesheim-Pharo/releases/latest)
+[![GitHub release](https://img.shields.io/badge/release-0.1.0-blue.svg)](https://github.com/devid-rudesheim/Pipe-Rudesheim-Pharo/releases)
 [![Unit Tests](https://github.com/devid-rudesheim/Pipe-Rudesheim-Pharo/actions/workflows/tests.yml/badge.svg)](https://github.com/devid-rudesheim/Pipe-Rudesheim-Pharo/actions/workflows/tests.yml)
 
 [![Pharo 13](https://img.shields.io/badge/Pharo-13-informational)](https://pharo.org)
