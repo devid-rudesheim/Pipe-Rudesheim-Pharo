@@ -1,0 +1,13 @@
+SmalltalkCISpec {
+  #loading : [
+    SCIMetacelloLoadSpec {
+      #baseline : 'RudesheimPipe',
+      #load : [ 'tests' ]
+    }
+  ],
+  #testing : {
+    #include : {
+      #packages : [ 'Rudesheim-Pipe-Tests', 'Rudesheim-Pipe-Private-Tests' ]
+    }
+  }
+}
