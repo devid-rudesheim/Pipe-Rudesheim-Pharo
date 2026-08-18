@@ -15,10 +15,10 @@ BaselineOfRudesheimPipe >> baseline: spec [
 		[
 			spec
 				baseline: 'RudesheimUtility'
-				with: [ spec repository: 'github://devid-rudesheim/Utility-Rudesheim-Pharo:main' ];
+				with: [ spec repository: 'github://devid-rudesheim/Utility-Rudesheim-Pharo:develop' ];
 
 				baseline: 'RudesheimKernel'
-				with: [ spec repository: 'github://devid-rudesheim/Kernel-Rudesheim-Pharo:main' ];
+				with: [ spec repository: 'github://devid-rudesheim/Kernel-Rudesheim-Pharo:develop' ];
 
 				package: 'Rudesheim-Pipe-Private'
 				with:
