@@ -10,26 +10,22 @@ Class {
 
 { #category : 'accessing' }
 StreamsPipeRudesheimTest class >> targetClass [
-
-	^ StreamsPipeRudesheim
+	^ StreamsPipeRudesheim.
 ]
 
 { #category : 'asserting' }
 StreamsPipeRudesheimTest >> assertStreamByScaler: aStream [
-
 	aStream
-		nextPut: self expectedScalerValue.
+		nextPut:	self expectedScalerValue.
 ]
 
 { #category : 'accessing' }
 StreamsPipeRudesheimTest >> expectedScalerValue [
-
 	^ 1.
 ]
 
 { #category : 'tests' }
 StreamsPipeRudesheimTest >> testBasicInstanceCreation [
-
 	super testBasicInstanceCreation.
 ]
 
@@ -44,45 +40,44 @@ StreamsPipeRudesheimTest >> testInputPipeStreamsOutputPipeStreams [
 	expecteds :=
 	{
 		1
-			to: 3.
+			to:	3.
 		3
-			to: 1
-			by: -1.
+			to:	1
+			by:	-1
 	}.
-	
+
 	input :=
 	{
 		self targetClass new.
-		self targetClass new.
+		self targetClass new
 	}.
-	
+
 	output :=
 		self targetClass
-			inputPipeStreams: input first
-			outputPipeStreams: input second.
-			
+			inputPipeStreams:	input first
+			outputPipeStreams:	input second.
+
 	expecteds first
 		do:
 		[ :each |
 			input first stdin
-				nextPut: each.
+				nextPut:	each.
 		].
-	
+
 	expecteds second
 		do:
 		[ :each |
 			input second stdin
-				nextPut: each.
+				nextPut:	each.
 		].
 
 	expecteds first
 		do:
 		[ :each |
 			self
-				assert: output stdin next 
-				equals: each.
+				assert:	output stdin next
+				equals:	each.
 		].
-
 ]
 
 { #category : 'tests' }
@@ -92,35 +87,32 @@ StreamsPipeRudesheimTest >> testInverse [
 		input
 		output
 	|
-	
+
 	expecteds :=
 		1
-			to: 3.
+			to:	3.
 
 	input := self basicTarget.
-	
 	output := input inverse.
-	
-	expecteds 
-		do: 
+
+	expecteds
+		do:
 		[ :each |
 			input stdout
-				nextPut: each 
-		].
-	
-	expecteds 
-		do: 
-		[ :each |
-			self
-				assert: output stdin next 
-				equals: each.
+				nextPut:	each.
 		].
 
+	expecteds
+		do:
+		[ :each |
+			self
+				assert:	output stdin next
+				equals:	each.
+		].
 ]
 
 { #category : 'tests' }
 StreamsPipeRudesheimTest >> testShiftStream [
-
 	self
 		testShiftStream0;
 		tearDown;
@@ -131,26 +123,28 @@ StreamsPipeRudesheimTest >> testShiftStream [
 { #category : 'tests' }
 StreamsPipeRudesheimTest >> testShiftStream0 [
 	|
-		base 
+		base
 		derived
 	|
-	
+
 	base := self basicTarget.
 
 	derived :=
 		self targetClass
-				shiftStream: base.
-	
-	derived stdout 
-		nextPut: 1.
+			shiftStream:	base.
+
+	derived stdout
+		nextPut:	1.
+
 	base stdin
-		nextPut: 2.
+		nextPut:	2.
+
 	base stdout
-		nextPut: 3.
-	
+		nextPut:	3.
+
 	self
-		assert: base stdin next
-		equals: 2.
+		assert:	base stdin next
+		equals:	2.
 ]
 
 { #category : 'tests' }
@@ -164,50 +158,46 @@ StreamsPipeRudesheimTest >> testShiftStream1 [
 
 	expecteds :=
 		1
-			to: 3.
+			to:	3.
 
 	input := self basicTarget.
-	
-	forProcess :=
-		self targetClass 
-			shiftStream: input.
-	
-	output :=
-		self targetClass 
-			shiftStream: forProcess.
 
+	forProcess :=
+		self targetClass
+			shiftStream:	input.
+
+	output :=
+		self targetClass
+			shiftStream:	forProcess.
 	[
 		EchoPipeRudesheim
-			executeWithPipeStream: forProcess.
+			executeWithPipeStream:	forProcess.
 	] fork.
 
-	expecteds 
-		do: 
+	expecteds
+		do:
 		[ :each |
-			input stdout 
-				nextPut: each.
+			input stdout
+				nextPut:	each.
 		].
 
-	expecteds 
-		do: 
+	expecteds
+		do:
 		[ :each |
 			self
-				assert: output stdin next
-				equals: each 
+				assert:	output stdin next
+				equals:	each.
 		].
-
 ]
 
 { #category : 'tests' }
 StreamsPipeRudesheimTest >> testStdin [
-
 	self
-		assertStreamByScaler: self basicTarget stdin.
+		assertStreamByScaler:	self basicTarget stdin.
 ]
 
 { #category : 'tests' }
 StreamsPipeRudesheimTest >> testStdout [
-
 	self
-		assertStreamByScaler: self basicTarget stdout.
+		assertStreamByScaler:	self basicTarget stdout.
 ]

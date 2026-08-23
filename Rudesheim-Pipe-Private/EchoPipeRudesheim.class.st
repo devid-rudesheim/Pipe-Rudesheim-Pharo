@@ -7,8 +7,6 @@ Class {
 
 { #category : 'evaluating' }
 EchoPipeRudesheim class >> executeWithPipeStream: aPipeStream [
-
 	aPipeStream stdout
-		nextPutAll: aPipeStream stdin.
-
+		nextPutAll:	aPipeStream stdin.
 ]

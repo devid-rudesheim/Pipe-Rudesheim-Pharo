@@ -10,29 +10,23 @@ Class {
 
 { #category : 'accessing' }
 PipeRudesheimTest class >> targetClass [
-
 	^ PipeRudesheim.
 ]
 
 { #category : 'accessing' }
 PipeRudesheimTest >> defaultBasicTarget [
-
 	^ self targetClass
-			withPipeCommands:
-			{
-			}
-
+		withPipeCommands:
+		{}.
 ]
 
 { #category : 'tests' }
 PipeRudesheimTest >> testBasicInstanceCreation [
-
 	super testBasicInstanceCreation.
 ]
 
 { #category : 'tests' }
 PipeRudesheimTest >> testWriteStreamDoReadStreamDo [
-
 	self
 		testWriteStreamDoReadStreamDo0;
 		tearDown;
@@ -54,21 +48,20 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo0 [
 	|
 		expecteds
 	|
-	
+
 	expecteds :=
 		1
-			to: 3.
-	
+			to:	3.
+
 	(
 		self targetClass
 			withPipeCommands:
-			{
-			}
+			{}
 	)
 		writeStreamDo:
 		[ :stream |
-			stream 
-				nextPutAll: expecteds.
+			stream
+				nextPutAll:	expecteds.
 		]
 		readStreamDo:
 		[ :stream |
@@ -76,8 +69,8 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo0 [
 				do:
 				[ :each |
 					self
-						assert: stream next
-						equals: each.
+						assert:	stream next
+						equals:	each.
 				].
 		].
 ]
@@ -88,12 +81,13 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo1 [
 		expecteds
 		actual
 	|
-	
+
 	actual := OrderedCollection new.
+
 	expecteds :=
 		1
-			to: 3.
-	
+			to:	3.
+
 	(
 		self targetClass
 			withPipeCommands:
@@ -103,19 +97,18 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo1 [
 	)
 		writeStreamDo:
 		[ :stream |
-			stream 
-				nextPutAll: expecteds.
+			stream
+				nextPutAll:	expecteds.
 		]
 		readStreamDo:
 		[ :stream |
 			actual
-				addAll: stream.
+				addAll:	stream.
 		].
 
 	self
-		assert: actual asArray
-		equals: expecteds  asArray.
-
+		assert:	actual asArray
+		equals:	expecteds asArray.
 ]
 
 { #category : 'tests' }
@@ -123,11 +116,11 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo2 [
 	|
 		expecteds
 	|
-	
+
 	expecteds :=
 		1
-			to: 3.
-	
+			to:	3.
+
 	(
 		self targetClass
 			withPipeCommands:
@@ -137,18 +130,18 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo2 [
 	)
 		writeStreamDo:
 		[ :stream |
-			stream 
-				nextPutAll: expecteds.
+			stream
+				nextPutAll:	expecteds.
 		]
 		readStreamDo:
 		[ :stream |
 			self
-				assert: stream atEnd not.
-				
+				assert:	stream atEnd not.
+
 			expecteds :=
-				expecteds 
-					copyWith: 4.
-		
+				expecteds
+					copyWith:	4.
+
 			expecteds
 				do:
 				[ :each |
@@ -157,10 +150,10 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo2 [
 						[
 							thisContext return.
 						].
-				
+
 					self
-						assert: stream next
-						equals: each.
+						assert:	stream next
+						equals:	each.
 				].
 		].
 ]
@@ -170,33 +163,33 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo3 [
 	|
 		expecteds
 	|
-	
+
 	expecteds :=
 		1
-			to: 3.
-	
+			to:	3.
+
 	(
 		self targetClass
 			withPipeCommands:
 			{
 				EchoPipeRudesheim.
-				EchoPipeRudesheim.
+				EchoPipeRudesheim
 			}
 	)
 		writeStreamDo:
 		[ :stream |
-			stream 
-				nextPutAll: expecteds.
+			stream
+				nextPutAll:	expecteds.
 		]
 		readStreamDo:
 		[ :stream |
 			self
-				assert: stream atEnd not.
-				
+				assert:	stream atEnd not.
+
 			expecteds :=
-				expecteds 
-					copyWith: 4.
-		
+				expecteds
+					copyWith:	4.
+
 			expecteds
 				do:
 				[ :each |
@@ -205,10 +198,10 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo3 [
 						[
 							thisContext return.
 						].
-				
+
 					self
-						assert: stream next
-						equals: each.
+						assert:	stream next
+						equals:	each.
 				].
 		].
 ]
@@ -218,9 +211,9 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo4 [
 	|
 		actual
 	|
-	
+
 	actual := 1.
-	
+
 	self
 		assert:	actual
 		equals:
@@ -229,18 +222,17 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo4 [
 				self targetClass
 					withPipeCommands:
 					{
-						EchoPipeRudesheim.
+						EchoPipeRudesheim
 					}
 			)
 				writeStreamDo:
 				[ :stream |
-					stream 
-						nextPut: actual.
+					stream
+						nextPut:	actual.
 				]
 				readStreamDo:
 				[ :stream |
 					stream next.
 				]
-		)
-
+		).
 ]

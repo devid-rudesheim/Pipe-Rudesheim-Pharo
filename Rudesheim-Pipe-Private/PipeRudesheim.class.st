@@ -11,40 +11,44 @@ Class {
 }
 
 { #category : 'namespace' }
-PipeRudesheim class >> Command [ ^ CommandPipeRudesheim
+PipeRudesheim class >> Command [
+	^ CommandPipeRudesheim.
 ]
 
 { #category : 'namespace' }
-PipeRudesheim class >> Echo [ ^ EchoPipeRudesheim
+PipeRudesheim class >> Echo [
+	^ EchoPipeRudesheim.
 ]
 
 { #category : 'namespace' }
-PipeRudesheim class >> EndOfStream [ ^ EndOfStreamPipeRudesheim
+PipeRudesheim class >> EndOfStream [
+	^ EndOfStreamPipeRudesheim.
 ]
 
 { #category : 'namespace' }
-PipeRudesheim class >> Message [ ^ MessagePipeRudesheim
+PipeRudesheim class >> Message [
+	^ MessagePipeRudesheim.
 ]
 
 { #category : 'namespace' }
-PipeRudesheim class >> SharedQueue [ ^ SharedQueuePipeRudesheim
+PipeRudesheim class >> SharedQueue [
+	^ SharedQueuePipeRudesheim.
 ]
 
 { #category : 'namespace' }
-PipeRudesheim class >> Streams [ ^ StreamsPipeRudesheim
+PipeRudesheim class >> Streams [
+	^ StreamsPipeRudesheim.
 ]
 
 { #category : 'instance creation' }
 PipeRudesheim class >> withPipeCommands: aSequencialCollection [
-
 	^ super new
-		setPipeCommands: aSequencialCollection.
+		setPipeCommands:	aSequencialCollection.
 ]
 
 { #category : 'initialization' }
 PipeRudesheim >> setPipeCommands: aSequencialCollection [
-
-	commands :=  aSequencialCollection.
+	commands := aSequencialCollection.
 ]
 
 { #category : 'initialization' }
@@ -56,48 +60,46 @@ readStreamDo: aReadingBlock [
 		pipeStreams
 		join
 	|
-	
+
 	originStream := StreamsPipeRudesheim new.
 	pipeStream := originStream.
-	
+
 	commands
-		do: 
+		do:
 		[ :each |
 			|
 				processLocalStream
 			|
-			
+
 			processLocalStream := pipeStream :=
 				StreamsPipeRudesheim
-					shiftStream: pipeStream.
-			
+					shiftStream:	pipeStream.
 			[
 				[
-					each 
-						executeWithPipeStream: processLocalStream.
+					each
+						executeWithPipeStream:	processLocalStream.
 				]
 					ensure:
 					[
-						processLocalStream stdout close. 
-					]
+						processLocalStream stdout close.
+					].
 			] fork
 		].
-	
+
 	pipeStreams :=
 		StreamsPipeRudesheim
-			inputPipeStreams: pipeStream inverse 
-			outputPipeStreams: originStream.
-		
+			inputPipeStreams:	pipeStream inverse
+			outputPipeStreams:	originStream.
+
 	join := Semaphore new.
 	[
 		[
 			aWritingBlock
-				value: pipeStreams stdout. 
+				value:	pipeStreams stdout.
 		]
 			ensure:
 			[
-				pipeStreams
-					stdout close.
+				pipeStreams stdout close.
 				join signal.
 			].
 	] fork.
@@ -105,10 +107,10 @@ readStreamDo: aReadingBlock [
 	^
 	[
 		aReadingBlock
-			value: pipeStreams stdin.
+			value:	pipeStreams stdin.
 	]
 		ensure:
 		[
-			join wait 
+			join wait.
 		].
 ]
