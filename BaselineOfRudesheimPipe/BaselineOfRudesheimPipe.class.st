@@ -10,58 +10,58 @@ BaselineOfRudesheimPipe >> baseline: spec [
 	<baseline>
 
 	spec
-		for: #common
+		for:	#common
 		do:
 		[
 			spec
-				baseline: 'RudesheimUtility'
-				with: [ spec repository: 'github://devid-rudesheim/Utility-Rudesheim-Pharo:develop' ];
-
-				baseline: 'RudesheimKernel'
-				with: [ spec repository: 'github://devid-rudesheim/Kernel-Rudesheim-Pharo:develop' ];
-
-				package: 'Rudesheim-Pipe-Private'
+				baseline:	'RudesheimUtility'
 				with:
 				[
 					spec
-						requires: #( 'RudesheimUtility' 'RudesheimKernel' )
+						repository:	'github://devid-rudesheim/Utility-Rudesheim-Pharo:develop'.
 				];
-
-				package: 'Rudesheim-Pipe'
+				baseline:	'RudesheimKernel'
 				with:
 				[
 					spec
-						requires: #( 'Rudesheim-Pipe-Private' )
+						repository:	'github://devid-rudesheim/Kernel-Rudesheim-Pharo:develop'.
 				];
-
-				project: 'RudesheimUtilityTests'
-				copyFrom: 'RudesheimUtility'
-				with:
-				[
-					spec loads: #( 'tests' )
-				];
-
-				package: 'Rudesheim-Pipe-Private-Tests'
+				package:	'Rudesheim-Pipe-Private'
 				with:
 				[
 					spec
-						requires: #( 'Rudesheim-Pipe' 'RudesheimUtilityTests' )
+						requires:	#( 'RudesheimUtility' 'RudesheimKernel' ).
 				];
-
-				package: 'Rudesheim-Pipe-Tests'
+				package:	'Rudesheim-Pipe'
 				with:
 				[
 					spec
-						requires: #( 'Rudesheim-Pipe' 'RudesheimUtilityTests' )
+						requires:	#( 'Rudesheim-Pipe-Private' ).
 				];
-
-				group:		#core
-				with:		#( 'Rudesheim-Pipe-Private' 'Rudesheim-Pipe' );
-
-				group:		#tests
-				with:		#( 'Rudesheim-Pipe-Private-Tests' 'Rudesheim-Pipe-Tests' );
-
-				group:		#default
-				with:		#( #core ).
-		]
+				project:	'RudesheimUtilityTests'
+				copyFrom:	'RudesheimUtility'
+				with:
+				[
+					spec
+						loads:	#( 'tests' ).
+				];
+				package:	'Rudesheim-Pipe-Private-Tests'
+				with:
+				[
+					spec
+						requires:	#( 'Rudesheim-Pipe' 'RudesheimUtilityTests' ).
+				];
+				package:	'Rudesheim-Pipe-Tests'
+				with:
+				[
+					spec
+						requires:	#( 'Rudesheim-Pipe' 'RudesheimUtilityTests' ).
+				];
+				group:	#core
+				with:	#( 'Rudesheim-Pipe-Private' 'Rudesheim-Pipe' );
+				group:	#tests
+				with:	#( 'Rudesheim-Pipe-Private-Tests' 'Rudesheim-Pipe-Tests' );
+				group:	#default
+				with:	#( #core ).
+		].
 ]

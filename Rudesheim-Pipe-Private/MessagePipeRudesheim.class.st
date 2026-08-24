@@ -13,25 +13,22 @@ Class {
 
 { #category : 'instance creation' }
 MessagePipeRudesheim class >> send: aSelectorSymbol
-to: anObject [ 
-
+to: anObject [
 	^ super new
-		setTarget: anObject 
-		selector: aSelectorSymbol
+		setTarget:	anObject
+		selector:	aSelectorSymbol.
 ]
 
 { #category : 'evaluating' }
 MessagePipeRudesheim >> executeWithPipeStream: aPipeStream [
-
 	^ target
-		perform: selector
-		with: aPipeStream.
+		perform:	selector
+		with:	aPipeStream.
 ]
 
 { #category : 'initialization' }
 MessagePipeRudesheim >> setTarget: anObject
 selector: aSelectorSymbol [
-
 	target := anObject.
 	selector := aSelectorSymbol.
 ]

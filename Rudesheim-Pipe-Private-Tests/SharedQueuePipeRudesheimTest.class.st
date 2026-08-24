@@ -10,13 +10,11 @@ Class {
 
 { #category : 'accessing' }
 SharedQueuePipeRudesheimTest class >> targetClass [
-
-	^ SharedQueuePipeRudesheim
+	^ SharedQueuePipeRudesheim.
 ]
 
 { #category : 'tests' }
 SharedQueuePipeRudesheimTest >> testAtEnd [
-
 	self
 		testAtEnd0;
 		tearDown;
@@ -32,13 +30,12 @@ SharedQueuePipeRudesheimTest >> testAtEnd [
 
 { #category : 'tests' }
 SharedQueuePipeRudesheimTest >> testAtEnd0 [
-
 	self
-		should: 
+		should:
 		[
-			self basicTarget atEnd. 
+			self basicTarget atEnd.
 		]
-		raise: TestTookTooMuchTime.
+		raise:	TestTookTooMuchTime.
 ]
 
 { #category : 'tests' }
@@ -46,13 +43,14 @@ SharedQueuePipeRudesheimTest >> testAtEnd1 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
+
 	target
-		nextPut: 1.
+		nextPut:	1.
 
 	self
-		assert: target atEnd not
+		assert:	target atEnd not.
 ]
 
 { #category : 'tests' }
@@ -60,13 +58,12 @@ SharedQueuePipeRudesheimTest >> testAtEnd2 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
-	target
-		close.
+	target close.
 
 	self
-		assert: target atEnd.
+		assert:	target atEnd.
 ]
 
 { #category : 'tests' }
@@ -74,27 +71,27 @@ SharedQueuePipeRudesheimTest >> testAtEnd3 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
+
 	target
-		nextPut: 1;
+		nextPut:	1;
 		close.
 
 	self
-		assert: target atEnd not;
-		assert: target next equals: 1;
-		assert: target atEnd.
+		assert:	target atEnd not;
+		assert:	target next
+		equals:	1;
+		assert:	target atEnd.
 ]
 
 { #category : 'tests' }
 SharedQueuePipeRudesheimTest >> testBasicInstanceCreation [
-
 	super testBasicInstanceCreation.
 ]
 
 { #category : 'tests' }
 SharedQueuePipeRudesheimTest >> testNext [
-
 	self
 		testNext0;
 		tearDown;
@@ -107,14 +104,15 @@ SharedQueuePipeRudesheimTest >> testNext0 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
+
 	target
-		nextPut: 1.
+		nextPut:	1.
 
 	self
-		assert: target next
-		equals: 1.
+		assert:	target next
+		equals:	1.
 ]
 
 { #category : 'tests' }
@@ -122,21 +120,20 @@ SharedQueuePipeRudesheimTest >> testNext1 [
 	|
 		target
 	|
-		
+
 	target := self basicTarget.
 	target close.
 
 	self
-		should: 
+		should:
 		[
 			target next.
 		]
-		raise: self targetClass endOfStreamError.
+		raise:	self targetClass endOfStreamError.
 ]
 
 { #category : 'tests' }
 SharedQueuePipeRudesheimTest >> testPeek [
-
 	self
 		testPeek0;
 		tearDown;
@@ -152,14 +149,15 @@ SharedQueuePipeRudesheimTest >> testPeek0 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
+
 	target
-		nextPut: 1.
+		nextPut:	1.
 
 	self
-		assert: target peek
-		equals: 1.
+		assert:	target peek
+		equals:	1.
 ]
 
 { #category : 'tests' }
@@ -167,16 +165,16 @@ SharedQueuePipeRudesheimTest >> testPeek1 [
 	|
 		target
 	|
-		
+
 	target := self basicTarget.
 	target close.
 
 	self
-		should: 
+		should:
 		[
 			target peek.
 		]
-		raise: self targetClass endOfStreamError.
+		raise:	self targetClass endOfStreamError.
 ]
 
 { #category : 'tests' }
@@ -184,10 +182,10 @@ SharedQueuePipeRudesheimTest >> testPeek2 [
 	|
 		target
 	|
-	
+
 	target := self basicTarget.
 
 	self
-		assert: target peek
-		equals: nil.
+		assert:	target peek
+		equals:	nil.
 ]
