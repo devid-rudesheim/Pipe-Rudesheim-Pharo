@@ -7,13 +7,11 @@ Class {
 
 { #category : 'evaluating' }
 CommandPipeRudesheim class >> executeWithPipeStream: aPipeStream [
-
 	self subclassResponsibility.
 ]
 
 { #category : 'evaluating' }
 CommandPipeRudesheim >> executeWithPipeStream: aPipeStream [
-
 	self class
-		executeWithPipeStream: aPipeStream.
+		executeWithPipeStream:	aPipeStream.
 ]

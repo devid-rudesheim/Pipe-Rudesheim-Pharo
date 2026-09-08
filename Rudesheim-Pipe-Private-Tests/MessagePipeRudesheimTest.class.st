@@ -10,15 +10,13 @@ Class {
 
 { #category : 'accessing' }
 MessagePipeRudesheimTest class >> targetClass [
-
 	^ MessagePipeRudesheim.
 ]
 
 { #category : 'accessing' }
 MessagePipeRudesheimTest >> defaultBasicTarget [
-
 	^ self targetClass
-		send: #value:
+		send:	#value:
 		to:
 		[ :streams |
 		].
@@ -26,7 +24,6 @@ MessagePipeRudesheimTest >> defaultBasicTarget [
 
 { #category : 'accessing' }
 MessagePipeRudesheimTest >> testBasicInstanceCreation [
-
 	super testBasicInstanceCreation.
 ]
 
@@ -39,34 +36,35 @@ MessagePipeRudesheimTest >> testExecuteWithPipeStream [
 
 	expected :=
 		1
-			to: 3.
-	
-	pipeStreams := StreamsPipeRudesheim new.	
+			to:	3.
+
+	pipeStreams := StreamsPipeRudesheim new.
+
 	pipeStreams stdin
-		nextPutAll: expected.
-	
+		nextPutAll:	expected.
+
 	[
 		(
 			self targetClass
-				send: #value:
+				send:	#value:
 				to:
 				[ :streams |
 					streams stdin
 						do:
 						[ :each |
 							streams stdout
-								nextPut: each.
-						]
+								nextPut:	each.
+						].
 				]
 		)
-			executeWithPipeStream: pipeStreams.
+			executeWithPipeStream:	pipeStreams.
 	] fork.
-	
+
 	expected
 		do:
 		[ :each |
 			self
-				assert: pipeStreams stdout next
-				equals: each 
+				assert:	pipeStreams stdout next
+				equals:	each.
 		].
 ]
