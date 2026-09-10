@@ -2,6 +2,6 @@ Extension { #name : 'SequenceableCollection' }
 
 { #category : '*Rudesheim-Pipe' }
 SequenceableCollection >> asRHPipe [
-	^ PipeRudesheim
+	^ Rudesheim Pipe
 		withPipeCommands:	self.
 ]

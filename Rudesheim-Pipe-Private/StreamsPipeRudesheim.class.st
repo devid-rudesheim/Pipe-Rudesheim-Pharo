@@ -32,7 +32,7 @@ StreamsPipeRudesheim class >> shiftStream: aPipeStreams [
 
 { #category : 'accessing-defaults' }
 StreamsPipeRudesheim >> defaultStream [
-	^ SharedQueuePipeRudesheim new.
+	^ Rudesheim Pipe SharedQueue new.
 ]
 
 { #category : 'operations' }

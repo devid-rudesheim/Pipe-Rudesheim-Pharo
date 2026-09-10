@@ -90,7 +90,7 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo1 [
 		self targetClass
 			withPipeCommands:
 			{
-				EchoPipeRudesheim
+				Rudesheim Pipe Echo
 			}
 	)
 		writeStreamDo:
@@ -123,7 +123,7 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo2 [
 		self targetClass
 			withPipeCommands:
 			{
-				EchoPipeRudesheim
+				Rudesheim Pipe Echo
 			}
 	)
 		writeStreamDo:
@@ -170,8 +170,8 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo3 [
 		self targetClass
 			withPipeCommands:
 			{
-				EchoPipeRudesheim.
-				EchoPipeRudesheim
+				Rudesheim Pipe Echo.
+				Rudesheim Pipe Echo
 			}
 	)
 		writeStreamDo:
@@ -220,7 +220,7 @@ PipeRudesheimTest >> testWriteStreamDoReadStreamDo4 [
 				self targetClass
 					withPipeCommands:
 					{
-						EchoPipeRudesheim
+						Rudesheim Pipe Echo
 					}
 			)
 				writeStreamDo:

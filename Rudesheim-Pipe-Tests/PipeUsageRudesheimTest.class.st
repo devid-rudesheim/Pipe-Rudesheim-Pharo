@@ -16,7 +16,7 @@ PipeUsageRudesheimTest >> testEchoCommandCopiesInputToOutput [
 	expected := #( 1 2 3 ).
 
 	{
-		EchoPipeRudesheim
+		Rudesheim Pipe Echo
 	} asRHPipe
 		writeStreamDo:
 		[ :stream |
@@ -45,7 +45,7 @@ PipeUsageRudesheimTest >> testMessageCommandTransformsInput [
 	expected := #( 2 4 6 ).
 
 	{
-		MessagePipeRudesheim
+		Rudesheim Pipe Message
 			send:	#value:
 			to:
 			[ :pipeStreams |
@@ -84,7 +84,7 @@ PipeUsageRudesheimTest >> testMessageCommandsAreComposedInOrder [
 	expected := #( 20 30 40 ).
 
 	{
-		MessagePipeRudesheim
+		Rudesheim Pipe Message
 			send:	#value:
 			to:
 			[ :pipeStreams |
@@ -95,7 +95,7 @@ PipeUsageRudesheimTest >> testMessageCommandsAreComposedInOrder [
 							nextPut:	each + 1.
 					].
 			].
-		MessagePipeRudesheim
+		Rudesheim Pipe Message
 			send:	#value:
 			to:
 			[ :pipeStreams |

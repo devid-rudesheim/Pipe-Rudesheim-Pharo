@@ -38,7 +38,7 @@ MessagePipeRudesheimTest >> testExecuteWithPipeStream [
 		1
 			to:	3.
 
-	pipeStreams := StreamsPipeRudesheim new.
+	pipeStreams := Rudesheim Pipe Streams new.
 
 	pipeStreams stdin
 		nextPutAll:	expected.
