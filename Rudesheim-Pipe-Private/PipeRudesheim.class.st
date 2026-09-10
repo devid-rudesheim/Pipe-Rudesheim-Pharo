@@ -55,7 +55,7 @@ readStreamDo: aReadingBlock [
 		join
 	|
 
-	originStream := StreamsPipeRudesheim new.
+	originStream := Rudesheim Pipe Streams new.
 	pipeStream := originStream.
 
 	commands
@@ -66,7 +66,7 @@ readStreamDo: aReadingBlock [
 			|
 
 			processLocalStream := pipeStream :=
-				StreamsPipeRudesheim
+				Rudesheim Pipe Streams
 					shiftStream:	pipeStream.
 			[
 				[
@@ -81,7 +81,7 @@ readStreamDo: aReadingBlock [
 		].
 
 	pipeStreams :=
-		StreamsPipeRudesheim
+		Rudesheim Pipe Streams
 			inputPipeStreams:	pipeStream inverse
 			outputPipeStreams:	originStream.
 

@@ -170,7 +170,7 @@ StreamsPipeRudesheimTest >> testShiftStream1 [
 		self targetClass
 			shiftStream:	forProcess.
 	[
-		EchoPipeRudesheim
+		Rudesheim Pipe Echo
 			executeWithPipeStream:	forProcess.
 	] fork.
 
