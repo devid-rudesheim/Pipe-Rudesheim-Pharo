@@ -14,12 +14,6 @@ BaselineOfRudesheimPipe >> baseline: spec [
 		do:
 		[
 			spec
-				baseline:	'RudesheimUtility'
-				with:
-				[
-					spec
-						repository:	'github://devid-rudesheim/Utility-Rudesheim-Pharo:develop'.
-				];
 				baseline:	'RudesheimKernel'
 				with:
 				[
@@ -30,7 +24,7 @@ BaselineOfRudesheimPipe >> baseline: spec [
 				with:
 				[
 					spec
-						requires:	#( 'RudesheimUtility' 'RudesheimKernel' ).
+						requires:	#( 'RudesheimKernel' ).
 				];
 				package:	'Rudesheim-Pipe'
 				with:
@@ -38,8 +32,8 @@ BaselineOfRudesheimPipe >> baseline: spec [
 					spec
 						requires:	#( 'Rudesheim-Pipe-Private' ).
 				];
-				project:	'RudesheimUtilityTests'
-				copyFrom:	'RudesheimUtility'
+				project:	'RudesheimKernelTests'
+				copyFrom:	'RudesheimKernel'
 				with:
 				[
 					spec
@@ -49,13 +43,13 @@ BaselineOfRudesheimPipe >> baseline: spec [
 				with:
 				[
 					spec
-						requires:	#( 'Rudesheim-Pipe' 'RudesheimUtilityTests' ).
+						requires:	#( 'Rudesheim-Pipe' 'RudesheimKernelTests' ).
 				];
 				package:	'Rudesheim-Pipe-Tests'
 				with:
 				[
 					spec
-						requires:	#( 'Rudesheim-Pipe' 'RudesheimUtilityTests' ).
+						requires:	#( 'Rudesheim-Pipe' 'RudesheimKernelTests' ).
 				];
 				group:	#core
 				with:	#( 'Rudesheim-Pipe-Private' 'Rudesheim-Pipe' );
